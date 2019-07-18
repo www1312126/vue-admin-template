@@ -53,13 +53,12 @@
 </template>
 
 <script>
-import { validUsername } from '@/utils/validate'
-
+import axios from 'axios'
 export default {
   name: 'Login',
   data() {
     const validateUsername = (rule, value, callback) => {
-      if (!validUsername(value)) {
+      if (value.length === '') {
         callback(new Error('Please enter the correct user name'))
       } else {
         callback()
@@ -74,8 +73,8 @@ export default {
     }
     return {
       loginForm: {
-        username: 'admin',
-        password: '111111'
+        username: '',
+        password: ''
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -106,14 +105,20 @@ export default {
       })
     },
     handleLogin() {
+      const router = this.$router
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
-          }).catch(() => {
-            this.loading = false
+          const _this = this
+          axios({
+            url: 'http://localhost/admin/v1/adminlogin?username=' + this.loginForm.username + '&password=' + this.loginForm.password,
+            method: 'get',
+            data: {}
+          }).then(function (response) {
+            _this.$router.push({ path: _this.redirect || '/' })
+            _this.loading = false
+          }).catch((error) => {
+            _this.loading = false
           })
         } else {
           console.log('error submit!!')
