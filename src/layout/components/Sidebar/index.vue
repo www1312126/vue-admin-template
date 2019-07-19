@@ -23,15 +23,46 @@ import { mapGetters } from 'vuex'
 import Logo from './Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
+import Layout from '@/layout'
+import Dashboard from '@/views/dashboard'
+import axios from 'axios'
 
 export default {
   components: { SidebarItem, Logo },
+  mounted() {
+    axios({
+      url: 'http://localhost/admin/v1/menus/page',
+      data: {}
+    }).then(response => {
+      const menuList = response.data.data
+      const newRouters = []
+      for (let i = 0; i < menuList.length; i++) {
+        const menu = menuList[i]
+        const router = {
+          path: menu.url,
+          meta: { title: menu.name, icon: menu.icon }
+        }
+        const children = menu.children
+        const routerChilren = []
+        for (let j = 0; j < children.length; j++) {
+          routerChilren.push({
+            path: children[j].url,
+            meta: { title: children[j].name, icon: children[j].icon }
+          })
+        }
+        router.children = routerChilren
+        newRouters.push(router)
+      }
+      this.$store.dispatch('app/setMenuList', newRouters)
+    }).catch(error => {
+    })
+  },
   computed: {
     ...mapGetters([
       'sidebar'
     ]),
     routes() {
-      return this.$router.options.routes
+      return this.$store.getters.menuList
     },
     activeMenu() {
       const route = this.$route

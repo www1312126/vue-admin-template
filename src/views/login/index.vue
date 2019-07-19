@@ -105,7 +105,6 @@ export default {
       })
     },
     handleLogin() {
-      const router = this.$router
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true

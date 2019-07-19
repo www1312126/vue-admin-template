@@ -46,12 +46,12 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/index',
     children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      path: 'index',
+      name: 'Index',
+      component: () => import('@/views/index/index'),
+      meta: { title: '', icon: 'dashboard' }
     }]
   },
 
@@ -74,6 +74,49 @@ export const constantRoutes = [
         component: () => import('@/views/tree/index'),
         meta: { title: 'Tree', icon: 'tree' }
       }
+    ]
+  },
+
+  {
+    path: '/datascreen',
+    component: Layout,
+    redirect: '/datascreen/index',
+    name: 'Datascreen',
+    meta: { title: '', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'datascreen-index',
+        component: () => import('@/views/datascreen/index'),
+        meta: { title: '数据大屏', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/system',
+    component: Layout,
+    name: 'System',
+    meta: { title: '', icon: 'example' },
+    children: [
+      {
+        path: '/org',
+        name: 'systemOrg',
+        component: () => import('@/views/org/index'),
+        meta: { title: '组织管理', icon: 'table' }
+      },
+      {
+        path: '/role',
+        name: 'systemOrg',
+        component: () => import('@/views/role/index'),
+        meta: { title: '角色管理', icon: 'table' }
+      },
+      {
+        path: '/user',
+        name: 'systemUser',
+        component: () => import('@/views/user/index'),
+        meta: { title: '账号信息', icon: 'table' }
+      },
     ]
   },
 

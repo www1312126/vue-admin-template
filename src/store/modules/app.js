@@ -5,6 +5,7 @@ const state = {
     opened: Cookies.get('sidebarStatus') ? !!+Cookies.get('sidebarStatus') : true,
     withoutAnimation: false
   },
+  menuList: [],
   device: 'desktop'
 }
 
@@ -25,6 +26,9 @@ const mutations = {
   },
   TOGGLE_DEVICE: (state, device) => {
     state.device = device
+  },
+  SET_MENU_LIST: (state, menuList) => {
+    state.menuList = menuList
   }
 }
 
@@ -37,6 +41,9 @@ const actions = {
   },
   toggleDevice({ commit }, device) {
     commit('TOGGLE_DEVICE', device)
+  },
+  setMenuList({ commit }, menuList) {
+    commit('SET_MENU_LIST', menuList)
   }
 }
 
