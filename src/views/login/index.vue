@@ -118,9 +118,13 @@ export default {
             _this.loading = false
           }).catch((error) => {
             _this.loading = false
+            _this.$alert('网络异常: ' + error, '提示', {
+              confirmButtonText: '确定',
+              callback: action => {
+              }
+            })
           })
         } else {
-          console.log('error submit!!')
           return false
         }
       })

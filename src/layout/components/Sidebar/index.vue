@@ -12,7 +12,7 @@
         :collapse-transition="false"
         mode="vertical"
       >
-        <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item v-for="route in menuList" :key="route.path" :item="route" :base-path="route.path" />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -23,13 +23,12 @@ import { mapGetters } from 'vuex'
 import Logo from './Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
-import Layout from '@/layout'
-import Dashboard from '@/views/dashboard'
 import axios from 'axios'
 
 export default {
   components: { SidebarItem, Logo },
   mounted() {
+    const _this = this
     axios({
       url: 'http://localhost/admin/v1/menus/page',
       data: {}
@@ -38,30 +37,38 @@ export default {
       const newRouters = []
       for (let i = 0; i < menuList.length; i++) {
         const menu = menuList[i]
+        /**
+         * 一级菜单
+         */
         const router = {
           path: menu.url,
+          name: menu.name,
           meta: { title: menu.name, icon: menu.icon }
         }
         const children = menu.children
         const routerChilren = []
+        /**
+         * 二级菜单
+         */
         for (let j = 0; j < children.length; j++) {
           routerChilren.push({
             path: children[j].url,
+            name: children[j].name,
             meta: { title: children[j].name, icon: children[j].icon }
           })
         }
         router.children = routerChilren
         newRouters.push(router)
       }
-      this.$store.dispatch('app/setMenuList', newRouters)
-    }).catch(error => {
-    })
+      _this.$store.dispatch('app/setMenuList', newRouters)
+    }).catch(error => {})
   },
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar',
+      'device'
     ]),
-    routes() {
+    menuList() {
       return this.$store.getters.menuList
     },
     activeMenu() {
