@@ -11,14 +11,15 @@
             <el-tree :data="townList" @node-click="handleNodeClick"></el-tree>
           </div>
 
-          <!-- 调研对象 -->
-          <div class="data-table">
-            <table class="data-list" cellpadding="0" cellspacing="0">
-              <thead>
+        </div>
+        <!-- 调研对象 -->
+        <div class="data-table">
+          <table class="data-list" cellpadding="0" cellspacing="0">
+            <thead>
               <th>调研对象</th>
               <th>数量</th>
-              </thead>
-              <tbody>
+            </thead>
+            <tbody>
               <tr v-show="!checkedObject.schoolStatus.hidden">
                 <td>学校</td>
                 <td>{{checkedObject.schoolStatus.number}}所</td>
@@ -31,9 +32,8 @@
                 <td>学生</td>
                 <td>{{checkedObject.studentStatus.number}}人</td>
               </tr>
-              </tbody>
-            </table>
-          </div>
+            </tbody>
+          </table>
         </div>
       </el-col>
       <el-col :span="9">
@@ -65,27 +65,27 @@
           </div>
           <div class="data-xinlist">
             <div class="data-xin">
-              <div>
-                <span class="data-border" />
+              <div style="padding: 0">
                 <span>平均心率>135</span>
               </div>
-              <div>
-                <span class="data-border cheng" />
+              <div style="padding: 0">
                 <span>平均运动强度>50%</span>
               </div>
-              <div>
-                <span class="data-border lan" />
+              <div style="padding: 0">
                 <span>平均练习密度>50%</span>
               </div>
             </div>
             <div class="data-xin">
               <div>
+                <i class="icon heartbeat"></i>
                 <span class="data-ceil">{{checkedObject.stuHeartRateReachStandardRate ? checkedObject.stuHeartRateReachStandardRate + '%' : '无数据'}}</span>
               </div>
               <div>
+                <i class="icon intensity"></i>
                 <span class="data-ceil">{{checkedObject.stuTrainIntensityReachStandardRate ? checkedObject.stuTrainIntensityReachStandardRate + '%' : '无数据'}}</span>
               </div>
               <div>
+                <i class="icon density"></i>
                 <span class="data-ceil">{{checkedObject.stuTrainDesityReachStandardRate ? checkedObject.stuTrainDesityReachStandardRate + '%' : '无数据'}}</span>
               </div>
             </div>
@@ -106,7 +106,7 @@
           <div class="data-title-list">
             <div class="data-tit-left">
               <div class="data-width" />
-              <div class="data-txttxt">达标人数</div>
+              <div class="data-txttxt">训练数据</div>
             </div>
           </div>
           <div class="data-text-student-number" >
@@ -128,14 +128,17 @@
           <div class="data-table" style="margin-top:18px;">
             <table class="data-list" cellpadding="0" cellspacing="0">
               <thead>
-                <th>国标测量项目</th>
+                <th>测量项目</th>
                 <th>测量人次</th>
-                <th>优秀</th>
-                <th>及格</th>
+                <th>合格率</th>
+                <th>优秀率</th>
               </thead>
               <tbody>
                 <tr>
-                  <td>50米跑</td>
+                  <td class="first-td">
+                    <i class="icon"></i>
+                    <span>50米跑</span>
+                  </td>
                   <td>60233人</td>
                   <td>
                     <span class="med-bule">13%</span>
@@ -145,7 +148,10 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>50米跑</td>
+                  <td class="first-td">
+                    <i class="icon"></i>
+                    <span>50米跑</span>
+                  </td>
                   <td>60233人</td>
                   <td>
                     <span class="med-bule">13%</span>
@@ -155,7 +161,10 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>50米跑</td>
+                  <td class="first-td">
+                    <i class="icon"></i>
+                    <span>50米跑</span>
+                  </td>
                   <td>60233人</td>
                   <td>
                     <span class="med-bule">13%</span>
@@ -165,7 +174,10 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>50米跑</td>
+                  <td class="first-td">
+                    <i class="icon"></i>
+                    <span>50米跑</span>
+                  </td>
                   <td>60233人</td>
                   <td>
                     <span class="med-bule">13%</span>
@@ -177,44 +189,44 @@
               </tbody>
             </table>
           </div>
-          <div class="data-table">
+          <!--<div class="data-table">
             <table class="data-list" cellpadding="0" cellspacing="0">
               <thead>
-              <th>自定义项目</th>
-              <th>练习人次</th>
-              <th>练习平均成绩</th>
-              <th>30日对比</th>
+                <th>自定义项目</th>
+                <th>练习人次</th>
+                <th>练习平均成绩</th>
+                <th>30日对比</th>
               </thead>
               <tbody>
-              <tr>
-                <td>100米跑</td>
-                <td>60233人</td>
-                <td>13.6秒</td>
-                <td>
-                  <img src="../../assets/images/datascreen/xiaji.png" style="margin-right:5px">
-                  <span>0.6秒</span>
-                </td>
-              </tr>
-              <tr>
-                <td>100米跑</td>
-                <td>60233人</td>
-                <td>13.6秒</td>
-                <td>
-                  <img src="../../assets/images/datascreen/shangsheng.png" style="margin-right:5px">
-                  <span>0.6秒</span>
-                </td>
-              </tr>
+                <tr>
+                  <td>100米跑</td>
+                  <td>60233人</td>
+                  <td>13.6秒</td>
+                  <td>
+                    <img src="../../assets/images/datascreen/xiaji.png" style="margin-right:5px">
+                    <span>0.6秒</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>100米跑</td>
+                  <td>60233人</td>
+                  <td>13.6秒</td>
+                  <td>
+                    <img src="../../assets/images/datascreen/shangsheng.png" style="margin-right:5px">
+                    <span>0.6秒</span>
+                  </td>
+                </tr>
               </tbody>
             </table>
-          </div>
+          </div>-->
         </div>
         <div class="data-tit-ri">
           <div class="data-title-list">
             <div class="data-tit-left">
-              <div class="data-width" />
+              <div class="data-width"></div>
               <div class="data-txttxt">BMI指数</div>
             </div>
-            <div class="data-tit-rig">
+            <!--<div class="data-tit-rig">
               <div class="data-qieimg">
                 <img src="../../assets/images/datascreen/select.png">
                 <span class="data-qie">肥胖</span>
@@ -223,45 +235,38 @@
                 <img src="../../assets/images/datascreen/selectout.png">
                 <span class="data-qie">低体重</span>
               </div>
-            </div>
+            </div>-->
           </div>
           <div class="data-tit-bottom">
-            <div class="data-cou">
-              <p class="data-count">总人数</p>
-              <div>
-                <span class="data-zhishu">22988</span>
-                <span class="data-man">人</span>
-              </div>
-            </div>
             <div class="data-sex">
               <div>
-                <img src="../../assets/images/datascreen/man.png" style="width:5em">
+                <img src="../../assets/images/datascreen/man.png">
               </div>
               <div class="data-sex-cou">
-                <p class="data-count">男生</p>
-                <div>
-                  <span class="data-zhishu">12644</span>
-                  <span class="data-man">人</span>
-                </div>
-                <div>
+                <p class="data-count">男生肥胖率</p>
+                <div style="padding: 15px 0">
                   <span class="data-zhishu">67.4</span>
                   <span class="data-man">%</span>
+                </div>
+                <div>
+                  <span>12644</span>
+                  <span>人</span>
                 </div>
               </div>
             </div>
             <div class="data-sex">
               <div>
-                <img src="../../assets/images/datascreen/wemen.png" style="width:5.5em">
+                <img src="../../assets/images/datascreen/wemen.png">
               </div>
               <div class="data-sex-cou">
-                <p class="data-count">女生</p>
-                <div>
-                  <span class="data-zhishu">12644</span>
-                  <span class="data-man">人</span>
-                </div>
-                <div>
+                <p class="data-count">女生肥胖率</p>
+                <div style="padding: 15px 0">
                   <span class="data-zhishu">67.4</span>
                   <span class="data-man">%</span>
+                </div>
+                <div>
+                  <span>12644</span>
+                  <span>人</span>
                 </div>
               </div>
             </div>
@@ -273,13 +278,11 @@
 </template>
 <style lang="scss" scoped>
   .data-sheb {
-    margin-top: 34px;
-    padding: 10px 15px 5px 10px;
+    padding: 0 15px 5px 10px;
     background: #fff;
   }
   .data-tit-ri {
-    margin-top: 37px;
-    padding: 10px 15px 11px 10px;
+    padding: 0 15px 11px 10px;
     background: #fff;
   }
   .data-qieimg {
@@ -290,7 +293,6 @@
     }
   }
   .data-sex-cou {
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -305,6 +307,10 @@
   .data-sex {
     width: 40%;
     justify-content: center;
+    img {
+      width: 60px;
+      height: 120px;
+    }
   }
   .data-cou {
     width: 20%;
@@ -323,12 +329,12 @@
     font-size: 16px;
     font-family: DIN-Medium;
     font-weight: 600;
-    color: rgba(67, 67, 67, 1);
+    color: #66BDFF;
   }
   .data-man {
     font-size: 13px;
     font-weight: 500;
-    color: #3a3a3a;
+    color: #66BDFF;
   }
   .data-tit-bottom {
     padding-bottom: 16px;
@@ -338,9 +344,6 @@
   .data-sex {
     display: flex;
     flex-direction: row;
-  }
-  .data-tit-ri {
-    margin-top: 36px;
   }
   .med-bule {
     color: #63c94c;
@@ -355,9 +358,30 @@
     display: flex;
     flex-direction: row;
     div {
+      position: relative;
+      padding: 0 0 0 22px;
       width: 33.3%;
-      text-align: center;
+      text-align: left;
       margin-top: 5px;
+      .icon {
+        position: absolute;
+        top: 2px;
+        left: 0;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+        background-repeat: no-repeat;
+      }
+      .icon.heartbeat{
+        background-image: url('../../assets/images/datascreen/icon-heartbeat.png');
+      }
+      .icon.intensity{
+        background-image: url('../../assets/images/datascreen/icon-intensity.png');
+      }
+      .icon.density{
+        background-image: url('../../assets/images/datascreen/icon-density.png');
+      }
     }
     .data-border {
       display: inline-block;
@@ -387,6 +411,7 @@
     }
   }
   .data-tong{
+    height: 310px;
     text-align: center;
   }
   .data-tong img {
@@ -415,6 +440,7 @@
   .data-screen-left,
   .data-screen-center,
   .data-screen-right {
+    height: 480px;
     background: #fff;
     padding: 10px 15px 5px 10px;
   }
@@ -462,10 +488,25 @@
       height: 55px;
       color: #606060;
       border-bottom: 1px solid #ddd;
+      .first-td{
+        padding: 0 0 0 24px;
+        position: relative;
+        .icon{
+          position: absolute;
+          display: block;
+          left: 20px;
+          top: 16px;
+          width: 20px;
+          height: 20px;
+          background: url("../../assets/images/datascreen/physicaltest.png") no-repeat;
+          background-size: 20px 20px;
+        }
+      }
     }
     tr:last-child {
       border: 0;
     }
+
   }
   .data-title-list {
     display: flex;
@@ -690,16 +731,7 @@ export default {
           validNumber: validNumber
         }
       }
-    },
-    /**
-     * 平均运动强度
-     */
-    getTotalStuTrainIntensityReachStandardRate(data) {
-      return null
-    },
-    getTotalStuTrainDesityReachStandardRate(data) {
-      return null
-    },
+    }
   }
 }
 </script>
