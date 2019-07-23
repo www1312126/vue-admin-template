@@ -49,7 +49,7 @@
                   <div class="average-status-item-title">
                     <span>平均心率</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data heartbeat">
                     <span class="average-status-item-data-value">126</span>
                     <span class="average-status-item-data-unit">bpm</span>
                   </div>
@@ -58,7 +58,7 @@
                   <div class="average-status-item-title">
                     <span>平均强度</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data intensity">
                     <span class="average-status-item-data-value">36</span>
                     <span class="average-status-item-data-unit">%</span>
                   </div>
@@ -67,7 +67,7 @@
                   <div class="average-status-item-title">
                     <span>练习密度</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data density">
                     <span class="average-status-item-data-value">44</span>
                     <span class="average-status-item-data-unit">%</span>
                   </div>
@@ -123,7 +123,7 @@
                   <div class="average-status-item-title">
                     <span>平均心率</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data heartbeat">
                     <span class="average-status-item-data-value">126</span>
                     <span class="average-status-item-data-unit">bpm</span>
                   </div>
@@ -132,7 +132,7 @@
                   <div class="average-status-item-title">
                     <span>平均强度</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data intensity">
                     <span class="average-status-item-data-value">36</span>
                     <span class="average-status-item-data-unit">%</span>
                   </div>
@@ -141,7 +141,7 @@
                   <div class="average-status-item-title">
                     <span>练习密度</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data density">
                     <span class="average-status-item-data-value">44</span>
                     <span class="average-status-item-data-unit">%</span>
                   </div>
@@ -197,7 +197,7 @@
                   <div class="average-status-item-title">
                     <span>平均心率</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data heartbeat">
                     <span class="average-status-item-data-value">126</span>
                     <span class="average-status-item-data-unit">bpm</span>
                   </div>
@@ -206,7 +206,7 @@
                   <div class="average-status-item-title">
                     <span>平均强度</span>
                   </div>
-                  <div class="average-status-item-data">
+                  <div class="average-status-item-data intensity">
                     <span class="average-status-item-data-value">36</span>
                     <span class="average-status-item-data-unit">%</span>
                   </div>
@@ -221,14 +221,11 @@
                   </div>
                 </li>
               </ul>
-
             </div>
           </li>
-
         </ul>
       </div>
     </div>
-
   </div>
 </template>
 <script>
@@ -323,30 +320,31 @@ export default {
   .school-type-title{
     top: 19px;
     position: absolute;
-    padding-left: 25px;
-    width: 67px;
+    padding-left: 35px;
+    width: 80px;
     height: 27px;
     line-height: 27px;
     color: #fff;
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
+    background-size: 80px 27px;
+    background-repeat: no-repeat;
   }
   .school-type-title.primary{
-    background-color: #fc8b62;
+    background-image: url("../../assets/images/heartbeatlive/icon-title-primary.png");
   }
   .school-type-title.middle{
-    background-color: #60aafb;
+    background-image: url("../../assets/images/heartbeatlive/icon-title-middle.png");
   }
   .school-type-title.high{
-    background-color: #9562fa;
+    background-image: url("../../assets/images/heartbeatlive/icon-title-high.png");
   }
-
-
   .school-item{
     background-color: #fff;
     width: 300px;
     float: left;
-    margin: 0 40px 0 0;
+    margin: 0 40px 30px 0;
+    cursor: pointer;
   }
   .school-item .top{
     padding: 20px 20px 10px 20px;
@@ -361,12 +359,14 @@ export default {
   }
 
   .school-item .top .school-name .icon{
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-image: url("../../assets/images/heartbeatlive/icon-school.png");
     width: 20px;
     height: 20px;
     position: absolute;
     bottom: 1px;
     left: 0;
-    background-color: red;
   }
   .school-item .top .class-info{
     position: relative;
@@ -395,19 +395,20 @@ export default {
     bottom: 4px;
     width: 16px;
     height: 16px;
-
   }
 
   .school-item .top .class-info .lesson-data.student-number i{
-    background-color: #b6b6b6;
+    background: url("../../assets/images/heartbeatlive/icon-training-number.png") no-repeat;
+    background-size: 16px 16px;
   }
 
   .school-item .top .class-info .lesson-data.elapsed-time i{
-    background-color: #b6b6b6;
+    background: url("../../assets/images/heartbeatlive/icon-training-timing.png") no-repeat;
+    background-size: 16px 16px;
   }
 
   .school-item .bottom{
-    height: 100px;
+    height: 115px;
     background-color: #fafafa;
   }
 
@@ -425,18 +426,37 @@ export default {
     width: 80px;
     height: 60px;
     margin: 0 0 0 10px;
-    border: 1px solid #999;
+    background-color: #FFF;
+    border: 1px solid #DCDCDC;
   }
   .average-status-item-title{
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 28px;
     color: #333;
   }
   .average-status-item-data{
-    color: green;
     text-align: center;
   }
+  .average-status-item-data.heartbeat {
+    .average-status-item-data-value,
+    .average-status-item-data-unit {
+      color: #F44743;
+    }
+  }
+  .average-status-item-data.intensity {
+    .average-status-item-data-value,
+    .average-status-item-data-unit {
+      color: #3F8DF8;
+    }
+  }
+  .average-status-item-data.density {
+    .average-status-item-data-value,
+    .average-status-item-data-unit {
+      color: #3ED7B8;
+    }
+  }
+
   .average-status-item-data-value{
     font-size: 20px;
   }
