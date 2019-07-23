@@ -94,6 +94,22 @@ export const constantRoutes = [
   },
 
   {
+    path: '/heartbeatlive',
+    component: Layout,
+    redirect: '/heartbeatlive/index',
+    name: 'HeartbeatLive',
+    meta: { title: '', icon: 'example' },
+    children: [
+      {
+        path: 'index',
+        name: 'heartbeatlive-index',
+        component: () => import('@/views/heartbeatlive/index'),
+        meta: { title: '心率直播', icon: 'table' }
+      }
+    ]
+  },
+
+  {
     path: '/system',
     component: Layout,
     name: 'System',
