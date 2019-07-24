@@ -14,7 +14,7 @@
           <span>小学</span>
         </div>
         <ul class="school-list">
-          <li v-for="(item,index) in primarySchoolClassList" :key="index" class="school-item">
+          <li v-for="(item,index) in primarySchoolClassList" :key="index" class="school-item" @click="clickPrimarySchool(index)">
             <div class="top">
               <div class="school-name">
                 <i class="icon" />
@@ -247,43 +247,61 @@ export default {
       data: generateData(),
       value: [1, 4, 5],
       liveClassNumber: 7,
-      primarySchoolClassList: [{
-        schoolName: '石岐中心小学',
-        className: '一年级（一）班'
-      },{
-        schoolName: '中山实验小学',
-        className: '二年级（五）班'
-      },{
-        schoolName: '石岐中心小学',
-        className: '四年级（一）班'
-      },{
-        schoolName: '石岐中心小学',
-        className: '四年级（三）班'
-      },{
-        schoolName: '石岐中心小学',
-        className: '五年级（二）班'
-      }],
-      middleSchoolClassList: [{
-        schoolName: '中山市第一中学',
-        className: '初三（五）班'
-      },{
-        schoolName: '中山市纪念中学',
-        className: '初二（三）班'
-      }],
-      highSchoolClassList: [{
-        schoolName: '石岐高中',
-        className: '高一（四）班'
-      },{
-        schoolName: '石岐高中',
-        className: '高二（二）班'
-      }]
+      primarySchoolClassList: [
+        {
+          schoolName: '石岐中心小学',
+          className: '一年级（一）班'
+        },
+        {
+          schoolName: '中山实验小学',
+          className: '二年级（五）班'
+        },
+        {
+          schoolName: '石岐中心小学',
+          className: '四年级（一）班'
+        },
+        {
+          schoolName: '石岐中心小学',
+          className: '四年级（三）班'
+        },
+        {
+          schoolName: '石岐中心小学',
+          className: '五年级（二）班'
+        }
+      ],
+      middleSchoolClassList: [
+        {
+          schoolName: '中山市第一中学',
+          className: '初三（五）班'
+        },
+        {
+          schoolName: '中山市纪念中学',
+          className: '初二（三）班'
+        }
+      ],
+      highSchoolClassList: [
+        {
+          schoolName: '石岐高中',
+          className: '高一（四）班'
+        },
+        {
+          schoolName: '石岐高中',
+          className: '高二（二）班'
+        }
+      ]
+    }
+  },
+  methods: {
+    clickPrimarySchool: function(index) {
+      this.$router.push('/heartbeatlive/class')
     }
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   #heartbeat-live{
     padding: 20px;
+    background-color: #F2F4F5;
   }
   .data-title {
     height: 34px;

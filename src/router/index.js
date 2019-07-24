@@ -104,7 +104,13 @@ export const constantRoutes = [
         path: 'index',
         name: 'heartbeatlive-index',
         component: () => import('@/views/heartbeatlive/index'),
-        meta: { title: '心率直播', icon: 'table' }
+        meta: { title: '心率直播', icon: 'table' },
+      },
+      {
+        path: 'class',
+        name: 'heartbeatlive-class',
+        component: () => import('@/views/heartbeatlive/class'),
+        meta: { title: '心率直播班级情况', icon: 'table' }
       }
     ]
   },
