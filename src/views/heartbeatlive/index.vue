@@ -298,7 +298,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   #heartbeat-live{
     padding: 20px;
     background-color: #F2F4F5;

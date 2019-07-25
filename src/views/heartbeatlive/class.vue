@@ -1,51 +1,56 @@
 <template>
   <div id="heartbeat-live-class">
-    <div class="class-info">
-      <div class="school-class-name">
-        <i class="icon"></i>
-        <span>学校班级:</span>
-        <span>中山华侨中学</span>
-        <span>初二3班</span>
+    <div style="">
+      <div class="class-info">
+        <div class="school-class-name">
+          <i class="icon"></i>
+          <span>学校班级:</span>
+          <span>中山华侨中学</span>
+          <span>初二3班</span>
+        </div>
+        <div class="course-starttime">
+          <i class="icon"></i>
+          <span>上课时间:</span>
+          <span>2019-06-19 15:36:33</span>
+        </div>
+        <div class="student-number">
+          <i class="icon"></i>
+          <span>上课人数:</span>
+          <span>46</span>
+          <span>人</span>
+        </div>
+        <div class="class-status">
+          <i class="icon"></i>
+          <span>状态:</span>
+          <span>直播中</span>
+        </div>
+        <div class="btn-return">
+          <el-button plain> < 返回</el-button>
+        </div>
       </div>
-      <div class="course-starttime">
-        <i class="icon"></i>
-        <span>上课时间:</span>
-        <span>2019-06-19 15:36:33</span>
-      </div>
-      <div class="student-number">
-        <i class="icon"></i>
-        <span>上课人数:</span>
-        <span>46</span>
-        <span>人</span>
-      </div>
-      <div class="class-status">
-        <i class="icon"></i>
-        <span>状态</span>
-        <span>直播中</span>
-      </div>
-    </div>
-    <div class="student-info">
-      <ul class="student-info-list">
-        <li class="student-info-item" v-for="(item, index) in studentLiveList">
-          <div class="student-info-item-name">
-            <span>陈淮分</span>
-          </div>
-          <div class="student-info-item-status">
-            <div class="timing">
-              <span class="timing-value">23</span>
-              <span class="timing-unit">分钟</span>
+      <div class="student-info">
+        <ul class="student-info-list">
+          <li class="student-info-item" v-bind:key="index" v-for="(item, index) in studentLiveList" @click="clickStudent(index)">
+            <div class="student-info-item-name">
+              <span>陈淮分</span>
             </div>
-            <div class="heartbeat">
-              <span class="heartbeat-value">126</span>
-              <span class="heartbeat-unit">bpm</span>
+            <div class="student-info-item-status">
+              <div class="timing">
+                <span class="timing-value">23</span>
+                <span class="timing-unit">分钟</span>
+              </div>
+              <div class="heartbeat">
+                <span class="heartbeat-value">126</span>
+                <span class="heartbeat-unit">bpm</span>
+              </div>
             </div>
-          </div>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 #heartbeat-live-class{
   background-color: #313133;
   min-height: calc(100vh - 50px);
@@ -56,6 +61,7 @@
 .class-info {
   padding: 8px 0;
   overflow: hidden;
+  position: relative;
   .school-class-name{
     position: relative;
     padding: 0 0 0 20px;
@@ -124,14 +130,22 @@
       background-size: 15px 15px;
     }
   }
+  .btn-return {
+    float: left;
+    margin: 0 0 0 80px;
+    height: 40px;
+  }
 }
-.student-info-list{
-  overflow: hidden;
+.student-info {
+  .student-info-list{
+    overflow: hidden;
+  }
 }
+
 .student-info-item {
   display: block;
   float: left;
-  margin: 0 18px 18px 0;
+  margin: 0 15px 18px 0;
   padding: 10px;
   width: 180px;
   height: 100px;
@@ -176,6 +190,18 @@ export default {
     }
     return {
       studentLiveList: studentLiveList
+    }
+  },
+  methods: {
+    clickStudent: function(index) {
+      this.$router.push(
+        {
+          path: '/heartbeatlive/student',
+          query: {
+            id: 8
+          }
+        }
+      )
     }
   }
 }
