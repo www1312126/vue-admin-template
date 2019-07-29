@@ -464,6 +464,9 @@
       color: rgba(67, 67, 67, 1);
     }
   }
+  .data-table {
+    background-color: #fff;
+  }
   .org-tree{
     height: 400px;
   }
