@@ -141,7 +141,7 @@
       position: absolute;
       top: 2px;
       left: 0;
-      background: url("../../assets/images/heartbeatliveclass/icon-schoolclass.png") no-repeat;
+      background: url("../../assets/images/heartbeatlivestudent/icon-schoolclass.png") no-repeat;
       background-size: 15px 15px;
     }
   }
@@ -158,7 +158,7 @@
       position: absolute;
       top: 2px;
       left: 0;
-      background: url("../../assets/images/heartbeatliveclass/icon-starttime.png") no-repeat;
+      background: url("../../assets/images/heartbeatlivestudent/icon-starttime.png") no-repeat;
       background-size: 15px 15px;
     }
   }
@@ -175,7 +175,7 @@
       position: absolute;
       top: 2px;
       left: 0;
-      background: url("../../assets/images/heartbeatliveclass/icon-studentnumner.png") no-repeat;
+      background: url("../../assets/images/heartbeatlivestudent/icon-studentnumber.png") no-repeat;
       background-size: 15px 15px;
     }
   }
@@ -192,7 +192,7 @@
       position: absolute;
       top: 2px;
       left: 0;
-      background: url("../../assets/images/heartbeatliveclass/icon-class-status.png") no-repeat;
+      background: url("../../assets/images/heartbeatlivestudent/icon-class-status.png") no-repeat;
       background-size: 15px 15px;
     }
   }
