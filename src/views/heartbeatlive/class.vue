@@ -131,8 +131,8 @@
     }
   }
   .btn-return {
-    float: left;
     margin: 0 0 0 80px;
+    float: left;
     height: 40px;
   }
 }
