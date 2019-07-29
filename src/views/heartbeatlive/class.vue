@@ -109,7 +109,7 @@
       position: absolute;
       top: 2px;
       left: 0;
-      background: url("../../assets/images/heartbeatliveclass/icon-studentnumner.png") no-repeat;
+      background: url("../../assets/images/heartbeatliveclass/icon-studentnumber.png") no-repeat;
       background-size: 15px 15px;
     }
   }
