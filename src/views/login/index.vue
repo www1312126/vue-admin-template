@@ -10,9 +10,6 @@
         </div>
 
         <el-form-item prop="username">
-          <!--<span class="svg-container">
-            <svg-icon icon-class="user" />
-          </span>-->
           <el-input
             ref="username"
             v-model="loginForm.username"
@@ -29,9 +26,6 @@
         </el-form-item>
 
         <el-form-item prop="password">
-          <!--<span class="svg-container">
-            <svg-icon icon-class="password" />
-          </span>-->
           <el-input
             :key="passwordType"
             ref="password"
