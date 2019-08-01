@@ -163,7 +163,7 @@ const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
 }, {})
 
 export default {
-  name: 'Org',
+  name: 'School',
   components: { Pagination },
   directives: { waves },
   filters: {

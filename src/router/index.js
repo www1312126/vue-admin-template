@@ -128,12 +128,6 @@ export const constantRoutes = [
     meta: { title: '', icon: 'example' },
     children: [
       {
-        path: '/org',
-        name: 'systemOrg',
-        component: () => import('@/views/org/index'),
-        meta: { title: '组织管理', icon: 'table' }
-      },
-      {
         path: '/role',
         name: 'systemRole',
         component: () => import('@/views/role/index'),
@@ -144,6 +138,21 @@ export const constantRoutes = [
         name: 'systemUser',
         component: () => import('@/views/user/index'),
         meta: { title: '账号信息', icon: 'table' }
+      }
+    ]
+  },
+
+  {
+    path: '/org',
+    component: Layout,
+    name: 'Org',
+    meta: { title: '', icon: 'example' },
+    children: [
+      {
+        path: 'school',
+        name: 'orgSchool',
+        component: () => import('@/views/org/school'),
+        meta: { title: '学校管理', icon: 'table' }
       }
     ]
   },
