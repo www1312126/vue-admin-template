@@ -1,10 +1,11 @@
 import request from '@/utils/request'
 
-export function login(data) {
+export function login(params) {
   return request({
-    url: '/user/login',
-    method: 'post',
-    data
+    url: '/admin/v1/adminlogin',
+    method: 'get',
+    params: params,
+    data: {}
   })
 }
 
@@ -18,7 +19,8 @@ export function getInfo(token) {
 
 export function logout() {
   return request({
-    url: '/user/logout',
-    method: 'post'
+    url: '/admin/v1/adminlogout',
+    method: 'post',
+    data: {}
   })
 }

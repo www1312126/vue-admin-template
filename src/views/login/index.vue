@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'Login',
   data() {
@@ -109,7 +108,16 @@ export default {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
-          const _this = this
+          this.$store.dispatch('user/login', this.loginForm)
+            .then(() => {
+              this.$router.push({ path: this.redirect || '/', query: this.otherQuery })
+              this.loading = false
+            })
+            .catch((error) => {
+              console.log(error)
+              this.loading = false
+            })
+          /*const _this = this
           axios({
             url: 'http://localhost/admin/v1/adminlogin?username=' + this.loginForm.username + '&password=' + this.loginForm.password,
             method: 'get',
@@ -124,7 +132,7 @@ export default {
               callback: action => {
               }
             })
-          })
+          })*/
         } else {
           return false
         }
